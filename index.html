@@ -458,6 +458,11 @@
             let files;
             if (data) {
                 files = JSON.parse(data);
+                if (files.error) {
+                    location.href = location.host || "" + location.pathname;
+                    return;
+                }
+
                 window.fileCache.set(files.parent, files);
                 preCache(files, 0);
             } else {
