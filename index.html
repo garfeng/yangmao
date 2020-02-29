@@ -459,7 +459,7 @@
             if (data) {
                 files = JSON.parse(data);
                 if (files.error) {
-                    location.href = location.host || "" + location.pathname;
+                    location.href = location.pathname;
                     return;
                 }
 
