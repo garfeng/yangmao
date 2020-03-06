@@ -100,6 +100,7 @@
             -khtml-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -400,6 +401,7 @@
 
 
         }
+
     </style>
     <script>
         function createCORSRequest(method, url, timeout) {
@@ -967,8 +969,9 @@
                     }
                     document.querySelector('.file-name').innerHTML = path;
                     document.querySelector('.btn.download').addEventListener('click',
-                        () => location.href = url
+                        () => location.href = url //window.api.url + '?file=' + path 
                     );
+                    /*
                     document.querySelector('.btn.quote').addEventListener('click',
                         event => {
                             previewHandler.copyTextContent(null, window.api.url + '?file=' + path);
@@ -976,7 +979,7 @@
                             btn.innerHTML = '已复制';
                             setTimeout(() => btn.innerHTML = '引用', 250);
                         }
-                    );
+                    );*/
                     document.querySelector('.btn.share').addEventListener('click',
                         event => {
                             const sharePath = () => {
@@ -1264,7 +1267,7 @@
     </script>
 </head>
 
-<body hidden="hidden">
+<body >
     <template id="tree-node-wrapper-template">
         <div class="tree-node-wrapper">
             <div class="tree-node">
@@ -1325,7 +1328,7 @@
                     <div class="info">
                         <div class="file-name"></div>
                         <div class="btn download">下载</div>
-                        <div class="btn quote">引用</div>
+                        <!--<div class="btn quote">引用</div>-->
                         <div class="btn share">分享</div>
                     </div>
                     <div class="content"></div>
