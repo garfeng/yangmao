@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <head>
@@ -715,7 +716,7 @@
             if (text === true) {
                 let cacheWaitReadmeFetch = setInterval(() => {
                     text = window.fileCache.get(path);
-                    if (typeof text === 'object') {
+                    if (typeof text != 'boolean') {
                         render(text, path);
                         clearInterval(cacheWaitReadmeFetch);
                     } else if (text === false) {
@@ -1175,7 +1176,7 @@
         }
 
         function fetchFileList(path) {
-            // console.log('fetching ' + path);
+            console.log('fetching ' + path);
             let loading = document.querySelector('.loading-wrapper');
             loading.style.display = 'initial';
             window.backFordwardCache.preview = false;
